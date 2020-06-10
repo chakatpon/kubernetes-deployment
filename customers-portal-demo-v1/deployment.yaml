@@ -1,0 +1,25 @@
+# This file configures the hello-world app which serves public web traffic.
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: customers-portal-demo-v1-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customers-portal-demo
+  template:
+    metadata:
+      labels:
+        app: customers-portal-demo
+    spec:
+      containers:
+        - name: customers-portal-demo
+          # Replace $GCLOUD_PROJECT with your project ID
+          image: gcr.io/customersportaldev/customers-portal-demo-v1-gke:latest
+          # This app listens on port 8080 for web traffic by default.
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
