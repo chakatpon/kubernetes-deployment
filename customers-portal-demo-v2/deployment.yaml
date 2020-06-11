@@ -1,0 +1,27 @@
+# This file configures the hello-world app which serves public web traffic.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customers-portal-demo-v2-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customers-portal-demo
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: customers-portal-demo
+        tier: web
+    spec:
+      containers:
+        - name: customers-portal-demo
+          # Replace $GCLOUD_PROJECT with your project ID
+          image: gcr.io/customersportaldev/customers-portal-demo-v2-gke:latest
+          # This app listens on port 5000 for web traffic by default.
+          ports:
+            - containerPort: 5000
+          env:
+            - name: PORT
+              value: "5000"

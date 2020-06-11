@@ -1,0 +1,13 @@
+{
+  "address": "34.120.128.109",
+  "addressType": "EXTERNAL",
+  "creationTimestamp": "2020-06-11T01:01:24.149-07:00",
+  "description": "",
+  "id": "4576342867845077563",
+  "ipVersion": "IPV4",
+  "kind": "compute#address",
+  "name": "customers-portal-demo-ip",
+  "networkTier": "PREMIUM",
+  "selfLink": "https://www.googleapis.com/compute/v1/projects/customersportaldev/global/addresses/customers-portal-demo-ip",
+  "status": "RESERVED"
+}
